@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <title>Document</title> -->
+</head>
+<body>
+    <div id="root">
+      <title>{{pageTitle}}</title>
+      <div>
+        <img v-bind:src="image"/><br>
+      </div>
+      <div>
+        <a v-bind:href="externalLink">{{product}}</a>
+        <ul v-for="invent in inventory">
+          <li v-show="invent.onSale">On sale!!! Buy Now!!</li>
+          <li>{{invent.name}}</li>
+          <li>{{invent.material}}</li>
+          <li v-if="invent.stock > 10">Inventory alot</li>
+          <li v-else-if="invent.stock <= 10 && invent.stock > 0">Almost no more left</li>
+          <li v-else="invent.stock == 0">SOLD OUT</li>
+        </ul>
+      <!-- <p v-if="inventory.length > 10">Inventory alot</p>
+      <p v-else-if="inventory.length <= 10 && inventory.length > 0">Almost no more left</p>
+      <p v-else="inventory.length == 0">SOLD OUT</p> -->
+      <h2>This is a {{product}}</h2>
+      <p>{{description}}</p>
+      </div>
+    </div>
+    <!-- vue script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="index.js"></script>
+</body>
+</html>
